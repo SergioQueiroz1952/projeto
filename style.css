@@ -1,0 +1,246 @@
+#nave {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 100;
+}
+#elemento1 {
+  height: 5rem;
+  background-color: aqua;
+}
+#elemento2 {
+  padding: 0%;
+  border: 0%;
+  margin: 0%;
+}
+#elemento3 {
+  height: 50rem;
+  background-color: blue;
+}
+#elemento4 {
+  height: 50rem;
+  background-color: pink;
+}
+#elemento5 {
+  height: 10rem;
+  background-color: crimson;
+}
+
+/*MENU*/
+.topo {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+} /*Essa aqui é a div que tem que ter a posição relativa para o menu*/
+#container {
+  width: 100%;
+  padding: 0;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+} /*Essa aqui é a div que vai andar quando o menu for ativado */
+#container.menu-on {
+  padding: 0 0 0 260px;
+}
+
+/*Configurações Padrões*/
+ul.menu,
+.menu li,
+.menu a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+ul.menu ul {
+  position: absolute;
+  display: none;
+  box-shadow: 3px 3px 2px #333;
+}
+
+/* Configurações nivel 1*/
+ul.menu {
+  float: left;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+.menu li {
+  float: left;
+  width: auto;
+  position: relative;
+}
+.menu li a {
+  display: block;
+  padding: 0 20px;
+  line-height: 45px;
+  height: 45px;
+  float: left;
+  -webkit-transition: all ease-out 0.1s;
+  transition: all ease-out 0.1s;
+}
+
+/* Configurações nivel 2*/
+.menu li:hover > ul.submenu-1 {
+  display: block;
+  top: 45px;
+  left: 0;
+  padding: 5px;
+  width: 200px;
+  border-radius: 0 0 5px 5px;
+}
+.menu ul.submenu-1 a {
+  width: 160px;
+  padding: 0 20px;
+  border-radius: 5px;
+}
+
+/*Configurações de cores*/
+
+/*nivel 1*/
+.menu {
+  background: #ccc;
+}
+.menu a {
+  color: #000;
+}
+.menu li:hover > a {
+  background: #999;
+  color: #fff;
+}
+
+/*nivel 2*/
+.submenu-1 {
+  background: #999;
+}
+.submenu-1 a {
+  color: #fff;
+}
+.submenu-1 li:hover > a {
+  background: #666;
+}
+
+@media only screen and (max-width: 576px) {
+  /*Configuração do nivel responsivo*/
+
+  ul.menu {
+    width: 260px;
+    border-radius: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: -280px;
+  }
+
+  .menu li {
+    width: 100%;
+    border-bottom: 1px solid;
+  }
+  .menu li a {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-radius: 0;
+  }
+  .menu li:hover > a {
+    background: none;
+  }
+
+  ul.menu ul,
+  .menu li:hover > ul.submenu-1 {
+    display: block;
+    position: relative;
+    float: left;
+    top: auto;
+    left: auto;
+    box-shadow: none;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: none;
+    padding: 0 0 20px 20px;
+  }
+
+  .menu ul.submenu-1 li {
+    border: none;
+  }
+  .menu ul.submenu-1 a {
+    width: 100%;
+    border-left: 1px solid #000;
+    border-radius: 0;
+  }
+
+  /*--Botão do Menu--*/
+  .topo i {
+    cursor: pointer;
+    display: block;
+    width: 20px;
+    height: 47px;
+    float: left;
+    padding: 0 15px;
+  }
+  .topo i b {
+    margin-top: 20px;
+  }
+  .topo i b,
+  .topo i b:before,
+  .topo i b:after {
+    cursor: pointer;
+    height: 4px;
+    width: 20px;
+    position: absolute;
+    display: block;
+    content: "";
+  }
+  .topo i b:before {
+    top: -6px;
+  }
+  .topo i b:after {
+    bottom: -6px;
+  }
+
+  /*Configuração do botão do menu ativo*/
+  .menu-on .topo i b {
+    background-color: transparent;
+  }
+  .menu-on .topo i b:before,
+  .menu-on .topo i b:after {
+    top: 0;
+  }
+  .menu-on .topo i b:before {
+    -webkit-transform: rotate(45deg) scale(1.2);
+    -ms-transform: rotate(45deg) scale(1.2);
+    transform: rotate(45deg) scale(1.2);
+  }
+  .menu-on .topo i b:after {
+    -webkit-transform: rotate(-45deg) scale(1.2);
+    -ms-transform: rotate(-45deg) scale(1.2);
+    transform: rotate(-45deg) scale(1.2);
+  }
+
+  /*========= Configuração de Cores ==============================*/
+
+  /*Configura de cores do menu responsivo*/
+  .menu {
+    background: #ccc;
+  }
+  .menu li {
+    border-color: #000;
+  }
+  .menu li a,
+  .menu li:hover > a {
+    color: #000;
+  }
+  .menu ul.submenu-1 a {
+    border-color: #000;
+    color: #000;
+  }
+
+  /*Cor do botão do menu*/
+  .topo i b,
+  .topo i b:before,
+  .topo i b:after {
+    background: #333;
+  }
+}
